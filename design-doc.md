@@ -55,7 +55,7 @@ Compatibility: Ensure that the application is compatible with various screen siz
 **System Architecture**
 (High level)
 
-![Alt text](images/high-level-diagram1)
+![Alt text](images/high-level-diagram1.png)
 
 
 **Technologies to be Used**
