@@ -1,10 +1,12 @@
 **DreamCatcher**
 
+
 **Owners**
 
 Alexis Hernandez (hernaa5)
 
 Valeria Villanueva-Ruiz (villav2)
+
 
 **Project Overview**
 
@@ -12,16 +14,17 @@ DreamCatcher is an AI Chatbot that will take user inputted dreams to visually re
 
 This chatbot ideally will be a part of a larger AI virtual morning assistant that makes suggestions for the day to the user based on their profile and mood drawn from the dreams contents if inputted that day.
 
+
 **Related AI Projects**
 
 Dream Interpreter AI ([dreaminterpreter.ai](dreaminterpreter.ai)) is a website where you can input a dream into a text box and receive an interpretation, it also has a feed showing art that has been derived from people’s dreams, which is similar to what we are trying to achieve, as well as a globe showing people’s dreams and their interpretations around the world
 
 Davinci Dream Meaning Machine ([dreammeaningmachine.com](dreammeaningmachine.com)) is another website which is more similar to the chatbot style we are trying to achieve. You can input a dream into a text box and receive an interpretation, but the input format is split into ‘Simple’ or ‘Guided’, simple being inputting text like we have mentioned, and guided having follow up questions to get more context and meaning 
 
+
 **Requirements**
 
 **FUNCTIONAL**
-
 Dream Input and Reconstruction: DreamCatcher should be able to reconstruct and recreate the dream from the user's input
 
 User Profiles: Profiles will include information like age, gender, location, zodiac sign, etc. so the system can adapt and personalize the dream analysis
@@ -34,8 +37,8 @@ Morning Assistant: This feature should provide the user with recommendations for
 
 Privacy and Security: Ensure that user data, especially personal information and dream content, is kept secure and private
 
-**NON-FUNCTIONAL**
 
+**NON-FUNCTIONAL**
 Performance: Responsive and timely dream reconstructions and interpretations to keep the user engaged and prevent slowdown
 
 Usability: The UI should be intuitive, making it easy for users to navigate, input dreams and receive dream interpretations
@@ -48,15 +51,17 @@ AI Model Training and Updates: Regularly update and fine-tune the AI models used
 
 Compatibility: Ensure that the application is compatible with various screen sizes and operating systems to reach a broader user base
 
+
 **System Architecture**
 (High level)
 
-(image)
+![Alt text](images/high-level-diagram1)
 
 
 **Technologies to be Used**
 
 Python, NLTK, DALL-E (will be updated)
+
 
 **User Profiles**
 
@@ -72,6 +77,7 @@ Psychology and Mental Health Enthusiasts: Individuals studying or interested in 
 
 Parents and Caregivers: Users who want to understand and interpret the dreams of who they’re caring for to help address any concerns or fears.
 
+
 **Stakeholders**
 
 Development Team: Developers, data scientists, and designers responsible for building and maintaining the DreamCatcher application.
@@ -79,6 +85,7 @@ Development Team: Developers, data scientists, and designers responsible for bui
 Mental Health Professionals: Individuals interested in the potential therapeutic applications of dream analysis and who may collaborate with the app.
 
 Data Providers: Organizations or researchers who develop and provide AI models for dream reconstruction, analysis, and image generation (e.g., DALL-E) as well as the constructors of dream meaning databases.
+
 
 **User Interface**
 
@@ -92,29 +99,26 @@ Feedback: Users will be able to provide feedback according to the answers they g
 
 Color Palette: Color palette (TBD) will be minimal and accessible for people with visual disabilities and to reduce overhead.
 
+
 **Team Roles and Responsibilities**
 
 Alexis Hernandez
-
-
 
 * Dream Interpretation AI Model
 * Follow up question generation
 * Chatbot UI
 * User profiles
 
+
 Valeria Villanueva-Ruiz
-
-
 
 * Dream Interpretation AI Model
 * DALL-E image generation
 * Morning assistant UI
 * Results page
 
+
 **Technical Limitations**
-
-
 
 1. Centralized dream meaning dataset/training data
 2. Contextualizing interpretations to give depth
