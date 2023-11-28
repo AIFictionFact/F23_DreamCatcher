@@ -38,7 +38,7 @@ output_notebook()
 
 import plotly.express as px
 
-for dirname, _, filenames in os.walk('/kaggle/input/dreams/'): #'/home/C00219805/Learning/dreams/'):#
+for dirname, _, filenames in os.walk('/Users/hernaa5/Desktop/RPI/AIFF/F23_DreamCatcher/docs'): #'/home/C00219805/Learning/dreams/'):#
     for filename in filenames:
         print(filename)
         df = pd.read_csv(os.path.join(dirname, filename), header = 0)
