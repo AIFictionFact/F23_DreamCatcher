@@ -1,23 +1,20 @@
-from chatterbot import ChatBot
-from chatterbot.trainers import (ListTrainer,ChatterBotCorpusTrainer)
+import openai
+import gradio
 
-chatbot = ChatBot('DreamCatcher')
+openai.api_key = "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"
 
-eng_trainer = ChatterBotCorpusTrainer(chatbot)
-eng_trainer.train('chatterbot.corpus.english')
+messages = [{"role": "system", "content": "You are a financial experts that specializes in real estate investment and negotiation"}]
 
-convo = [
-    "Hello",
-    "How are you feeling today?",
-    "Did you have any dreams last night? Please tell me about them:",
-    "Thank you, I'll get right on that...",
-    "No problem!"
-]
+def CustomChatGPT(user_input):
+    messages.append({"role": "user", "content": user_input})
+    response = openai.ChatCompletion.create(
+        model = "gpt-3.5-turbo",
+        messages = messages
+    )
+    ChatGPT_reply = response["choices"][0]["message"]["content"]
+    messages.append({"role": "assistant", "content": ChatGPT_reply})
+    return ChatGPT_reply
 
-trainer2 = ListTrainer(chatbot)
-trainer2.train(convo)
+demo = gradio.Interface(fn=CustomChatGPT, inputs = "text", outputs = "text", title = "Real Estate Pro")
 
-# Get a response from the chatbot
-response = chatbot.get_response('Hello, how are you?')
-
-print(response)
+demo.launch(share=True)
