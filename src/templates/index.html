@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamCatcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700;800;900&family=Gabarito:wght@400;500;600;700;800;900&family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Staatliches&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <link rel="stylesheet" href="../static/styles/style.css">
+    
+
+    <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
+  </head>
+  <body>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+    <script src="{{url_for('static', filename='weather.js')}}"></script>
+    <!-- <script src="/static/script.js"></script>
+    <script src="/static/weather.js"></script> -->
+    <div id="cover">
+        <!-- <img src="/src/dreamcatcher_logo_white.png"> -->
+        <!-- <img src="{{url_for('static', filename='dreamcatcher_logo_white.png')}}" /> -->
+        <img src="../static/images/dreamcatcher_logo_white.png" align="middle" />
+    </div>
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/templates/about.html">About</a></li>
+        <li><a href="/templates/feedback.html">Feedback</a></li>
+        <li id="loginLogout"><a href="/templates/login.html">Register</a></li>
+    </ul>
+
+    <main>
+      <div class = "containerGreeting">
+        <h1><p id="greeting"></p></h1>
+        <p id = "currentDate"></p>
+      </div>
+
+      <div class = "containerWrapper">
+        <div class = "containerWrapped">
+          <!-- <div id = "currentTime"></div> -->
+          <!--Dayspedia.com widget--><iframe width='308' height='215' style='padding:0!important;margin:0!important;border:none!important;background:none!important;background:transparent!important' marginheight='0' marginwidth='0' frameborder='0' scrolling='no' comment='/*defined*/' src='https://dayspedia.com/if/digit/?v=1&iframe=eyJ3LTEyIjp0cnVlLCJ3LTExIjp0cnVlLCJ3LTEzIjp0cnVlLCJ3LTE0IjpmYWxzZSwidy0xNSI6ZmFsc2UsInctMTEwIjp0cnVlLCJ3LXdpZHRoLTAiOnRydWUsInctd2lkdGgtMSI6ZmFsc2UsInctd2lkdGgtMiI6ZmFsc2UsInctMTYiOiIyNHB4Iiwidy0xOSI6IjY0Iiwidy0xNyI6IjE2Iiwidy0yMSI6dHJ1ZSwiYmdpbWFnZSI6LTEsImJnaW1hZ2VTZXQiOmZhbHNlLCJ3LTIxYzAiOiIjZmZmZmZmIiwidy0wIjp0cnVlLCJ3LTMiOmZhbHNlLCJ3LTNjMCI6IiMzNDM0MzQiLCJ3LTNiMCI6IjEiLCJ3LTYiOiIjMzQzNDM0Iiwidy0yMCI6dHJ1ZSwidy00IjoiIzAwN2RiZiIsInctMTgiOnRydWUsInctd2lkdGgtMmMtMCI6IjMwMCIsInctMTE1Ijp0cnVlfQ==&lang=en&cityid=8751'></iframe><!--Dayspedia.com widget ENDS-->
+        </div>
+
+        <div class = "containerWrapped">
+          <div class = image-container2>
+            <img src="../static/images/temperature.png" align="middle" />
+            <div id="temp"></div>
+          </div>
+
+          <div class = image-container2> 
+            <img src="../static/images/season1.png" align="middle" />
+            <div id="descData"></div>
+          </div>
+        </div>
+        
+      </div>
+
+
+      <div class = "container">
+        <!-- <h2><p id="greeting"></p></h2>
+        <p id = "currentTime"></p> -->
+        <!-- <div id="temp"></div> -->
+
+        <p>
+          <h2>Tell us about your dreams...</h2>
+          <form action="/" method="post">
+            <input type="text" id="prompt" name="prompt" required>
+            <button type="submit">Submit Dream for Interpretation</button>
+          </form>
+        </p>
+
+          {% if prompt %}
+            <h3>Your Dream:</h3>
+            <p>{{ prompt }}</p>
+            <img src="{{ image_url }}" alt="Dream Image">
+            <div style = "text-align: center;">
+              <i><p>{{ chat_response }}</p></i>
+            </div>
+            
+            <!-- <p><a href="{{ image_url }}" target="_blank">Open Image in a new tab</a></p> -->
+          {% endif %}
+      </div>
+    </main>
+
+    <script>
+      function showAlert() {
+          // Show the alert
+          alert("Give us a few moments while we work on the interpretation of your dream!");
+      }
+
+      function updateCurrentTime() {
+        var currentDateElement = document.getElementById('currentDate');
+        var currentTimeElement = document.getElementById('currentTime');
+        var now = new Date();
+
+        // Display Date
+        var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var dateString = now.toLocaleDateString(undefined, dateOptions);
+
+        // Display Time
+        var timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+        var timeString = now.toLocaleTimeString(undefined, timeOptions);
+
+        // Display Timezone
+        var timezoneString = now.toLocaleTimeString(undefined, { timeZoneName: 'short' }).split(' ')[2];
+
+        // Update the content of the element
+        currentDateElement.textContent = `Today is ${dateString}\n`;
+        currentTimeElement.textContent = `${timeString} ${timezoneString}`;
+    }
+
+      // Function to format time component (add leading zero if needed)
+      function formatTimeComponent(timeComponent) {
+          return timeComponent < 10 ? '0' + timeComponent : timeComponent;
+      }
+
+      // Call the function to initially update the current time
+      updateCurrentTime();
+
+      // Update the time every second
+      setInterval(updateCurrentTime, 1000);
+    </script>
+  </body>
+</html>

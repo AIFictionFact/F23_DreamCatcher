@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     const temp = document.getElementById("temp");
+    const desc = document.getElementById("descData");
+    const feels = document.getElementById("feelsData");
 
     // Turns string and turns it to title Case - source link in README
     function titleCase(str) {
@@ -18,9 +20,13 @@ document.addEventListener("DOMContentLoaded", function(){
             const descData =data.current.weather[0].description;
             const feelsData = data.current.feels_like;
 
-            const tempHtml = `<p>It's ${tempData}°C with ${descData} and it feels like...${feelsData}°C</p>`;
+            const tempHtml = `<p>    ${tempData}°C </p>`;
+            const descHtml = `<p>${titleCase(descData)}</p>`;
+            const feelsHtml = `${feelsData}°C</p>`;
 
             temp.innerHTML = tempHtml;
+            desc.innerHTML = descHtml;
+            feels.innerHTML = feelsHtml;
         })
         .catch((e)=>{
             console.error("Error fetching: ", e);

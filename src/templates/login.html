@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamCatcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700;800;900&family=Gabarito:wght@400;500;600;700;800;900&family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
+  </head>
+  <body>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+    <div id="cover">
+        <img src="../static/images/dreamcatcher_logo_white.png">
+    </div>
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/templates/about.html">About</a></li>
+        <li><a href="/templates/feedback.html">Feedback</a></li>
+        <li id="loginLogout"><a href="/templates/login.html">Register</a></li>
+    </ul>
+
+    <main>
+        <div class="containerLogIn">
+            <h1>DreamCatcher Register</h1>
+            <form action="log_in.php" method="post">
+                <input class = "input" placeholder= "First Name" type="text" id="fname" name="fname" required>
+
+                <input class = "input" placeholder= "Last Name" type="text" id="lname" name="lname" required>
+        
+                <input class = "input" placeholder= "Email" type="email" id="email" name="email" required>
+
+                <input class = "input" placeholder= "Username" type="email" id="username" name="username" required>
+
+                <input class = "input" placeholder="Birthdate" type="date" id="birthday" name="birthday" required>
+        
+                <button type="button" onclick="redirect()">Log In</button>
+            </form>
+        </div>
+    </main>
+  </body>
+</html>
